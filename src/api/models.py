@@ -3,10 +3,10 @@ from django.db import models
 
 class Article(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
-    text = models.TextField()
+    text = models.TextField(null=True, blank=True)
     source = models.URLField(max_length=255, null=True, blank=True)
-    observed_authenticity = models.BooleanField(default=True)
-    predicted_authenticity = models.BooleanField(default=True)
+    label = models.BooleanField(default=True)
+    predicted_label = models.BooleanField(default=None, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -17,9 +17,7 @@ class Article(models.Model):
 class FeedBack(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     authentic = models.BooleanField(default=True)
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    comment = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
