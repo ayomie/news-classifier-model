@@ -5,6 +5,7 @@ db.sqlite3
 .vscode/
 media/
 venv/
+.ipynb_checkpoints/
 bin/ssh.sh
 bin/ssh-live.sh
 
