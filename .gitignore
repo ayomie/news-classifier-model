@@ -28,3 +28,4 @@ requirements-dev.txt
 
 # Celery
 celerybeat-schedule
+src/data.json
