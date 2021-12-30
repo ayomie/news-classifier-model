@@ -1,12 +1,30 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from api.models import Article
+import pandas as pd
+from sklearn.utils import shuffle
+
 import json
 
 # JSON file
-f = open ('/Users/adeot-adegboyega/Documents/projects/data-science/news-classifier-model/src/data.json', "r")
+# f = open ('/Users/adeot-adegboyega/Documents/projects/data-science/news-classifier-model/src/data.json', "r")
+
+fake_data = pd.read_csv("data/archive/Fake.csv")
+true_data = pd.read_csv("data/archive/True.csv")
+fake_data["label"] = 0
+true_data["label"] = 1
+frames = [fake_data, true_data]
+data = pd.concat(frames)
+data.drop(["subject", "date"], axis=1, inplace=True)
+df = shuffle(data)
+df.reset_index(inplace=True, drop=True)
+
+df.to_json("data.json", orient="records")
+# temp_data = df.to_json(orient="records")
+# temp_data = json.dumps(json.loads(df.to_json(orient="records")))
  
 # Reading from file
+f = open("data.json", "r")
 temp_data = json.loads(f.read())
 data = []
 for item in temp_data:
