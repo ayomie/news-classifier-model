@@ -6,9 +6,6 @@ from sklearn.utils import shuffle
 
 import json
 
-# JSON file
-# f = open ('/Users/adeot-adegboyega/Documents/projects/data-science/news-classifier-model/src/data.json', "r")
-
 fake_data = pd.read_csv("data/archive/Fake.csv")
 true_data = pd.read_csv("data/archive/True.csv")
 fake_data["label"] = 0
@@ -20,8 +17,6 @@ df = shuffle(data)
 df.reset_index(inplace=True, drop=True)
 
 df.to_json("data.json", orient="records")
-# temp_data = df.to_json(orient="records")
-# temp_data = json.dumps(json.loads(df.to_json(orient="records")))
  
 # Reading from file
 f = open("data.json", "r")
