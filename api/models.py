@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=255, null=True, blank=True)
+    title = models.TextField(null=True, blank=True)
     text = models.TextField(null=True, blank=True)
     source = models.URLField(max_length=255, null=True, blank=True)
     label = models.BooleanField(default=True)
