@@ -2,7 +2,7 @@ from django.db.models import fields
 from rest_framework import serializers
 
 from .models import *
-from .utils import predict
+import pickle
 
 class ArticleFeebackSerializer(serializers.ModelSerializer):
     class Meta:

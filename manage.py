@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from api.utils import tokenize
+# from .utils import tokenize
 
 
 def main():
