@@ -13,6 +13,9 @@ class Article(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    class Meta:
+        ordering = ('-created_at', )
+
 
 class FeedBack(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
@@ -23,3 +26,6 @@ class FeedBack(models.Model):
 
     def __str__(self) -> str:
         return self.article.title
+
+    class Meta:
+        ordering = ('-created_at', )
